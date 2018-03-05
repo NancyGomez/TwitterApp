@@ -21,8 +21,36 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var retweetButton: UIButton!
+    
     @IBAction func retweet(_ sender: Any) {
-        
+        if(tweet.retweeted == false)
+        {
+            tweet.retweeted = true
+            tweet.retweetCount += 1
+            retweetButton.setImage(UIImage(named: "retweet-icon-green.png"), for:[])
+            APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error retweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully retweeted the following Tweet: \n\(tweet.text)")
+                }
+            }
+            self.refreshData()
+        }
+        else
+        {
+            tweet.retweeted = false
+            tweet.retweetCount -= 1
+            retweetButton.setImage(UIImage(named: "retweet-icon.png"), for:[])
+            APIManager.shared.unRetweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unretweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unRetweeted the following Tweet: \n\(tweet.text)")
+                }
+            }
+            self.refreshData()
+        }
     }
     
     @IBAction func tapFavorite(_ sender: Any) {
@@ -58,7 +86,6 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             refreshData()
-            
         }
     }
     
@@ -79,7 +106,7 @@ class TweetCell: UITableViewCell {
         profileImg.af_setImage(withURL: url)
         tweetTextLabel.text = tweet.text
         username.text = tweet.user.name
-//        usernameTextLabel.text = ("@" + tweet.user.screenName!) as String?
+        screenName.text = ("@" + tweet.user.screenName!) as String?
         date.text = tweet.createdAtString
         retweetCount.text = String(tweet.retweetCount)
         favCount.text = String(describing: tweet.favoriteCount)
@@ -89,6 +116,11 @@ class TweetCell: UITableViewCell {
         } else {
             favCount.text = "0"
         }
+        
+        profileImg.layer.cornerRadius = profileImg.frame.size.width / 2;
+        profileImg.layer.borderWidth = 1
+        profileImg.layer.borderColor = UIColor.black.cgColor
+        profileImg.clipsToBounds = true
         
     }
     

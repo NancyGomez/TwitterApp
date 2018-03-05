@@ -30,8 +30,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         getTweets()
     }
-    func getTweets()
-    {
+    func getTweets() {
         APIManager.shared.getHomeTimeLine{(tweets, error) in
             if let tweets = tweets{
                 self.tweets = tweets
