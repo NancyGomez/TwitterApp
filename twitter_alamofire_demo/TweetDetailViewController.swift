@@ -10,6 +10,13 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var screenName: UILabel!
+    @IBOutlet weak var tweet: UILabel!
+    @IBOutlet weak var createdAt: UILabel!
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var favCount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +27,5 @@ class TweetDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
