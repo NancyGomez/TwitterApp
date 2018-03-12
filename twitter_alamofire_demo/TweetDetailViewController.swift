@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetDetailViewController: UIViewController {
 
@@ -18,10 +19,24 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var favCount: UILabel!
     
+    var tweetInfo = Tweet()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        username.text = tweetInfo.user.name
+        let url = URL(string: tweetInfo.user.profileURL)!
+        userImg.af_setImage(withURL: url)
+        screenName.text = tweetInfo.user.screenName
+        tweet.text = tweetInfo.text
+        createdAt.text = tweetInfo.createdAtString
+        retweetCount.text = String(describing: tweetInfo.retweetCount)
+        if(tweetInfo.favoriteCount != nil) {
+            let count = tweetInfo.favoriteCount!
+            favCount.text = String(count)
+        } else {
+            favCount.text = "0"
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
