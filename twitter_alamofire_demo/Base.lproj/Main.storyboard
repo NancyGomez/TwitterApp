@@ -360,11 +360,20 @@
                                     <action selector="didPost:" destination="qgi-Yv-saT" eventType="touchUpInside" id="Flb-xg-IuM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-mA-TbS">
+                                <rect key="frame" x="318" y="361" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tweet" image="edit-icon" id="IOu-0X-Riz"/>
                     <connections>
+                        <outlet property="charCount" destination="gvu-mA-TbS" id="lTz-Hf-yBL"/>
+                        <outlet property="postButton" destination="kOM-hf-r1E" id="3OW-0z-bsp"/>
                         <outlet property="screenName" destination="XBQ-rR-kEQ" id="eBe-2f-EEi"/>
                         <outlet property="tweetText" destination="QCi-dQ-VtC" id="JJU-Qn-eXG"/>
                         <outlet property="userImg" destination="egY-ka-HtZ" id="RF9-82-dlj"/>

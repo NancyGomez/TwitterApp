@@ -8,20 +8,50 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var tweetText: UITextView!
+    @IBOutlet weak var charCount: UILabel!
+    @IBOutlet weak var postButton: UIButton!
     
     var user = User()
     var delegate: ComposeViewControllerDelegate?
     
     override func viewDidLoad() {
+        tweetText.delegate = self
         super.viewDidLoad()
+        postButton.isUserInteractionEnabled = false
+        postButton.setTitleColor(UIColor.gray, for: .normal)
         fillUser()
         loadUser()
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        if(textView.text != ""){
+            postButton.isUserInteractionEnabled = true
+            postButton.setTitleColor(UIColor.blue, for: .normal)
+            
+        }
+        else{
+            postButton.isUserInteractionEnabled = false
+            postButton.setTitleColor(UIColor.gray, for: .normal)
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // TODO: Check the proposed new text character count
+        // Allow or disallow the new text
+        // Set the max character limit
+        let characterLimit = 140
+        
+        // Construct what the new text would be if we allowed the user's latest edit
+        let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
+        
+        // TODO: Update Character Count Label
+        charCount.text = "\(characterLimit - newText.count)"
+        // The new text should be allowed? True/False
+        return newText.count < characterLimit
     }
     
     func loadUser() {
