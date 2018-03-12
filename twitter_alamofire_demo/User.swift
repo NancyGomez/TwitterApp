@@ -14,6 +14,10 @@ class User {
     var screenName: String?
     var profileURL: String
     
+    var followersCount: Int
+    var followingCount: Int
+    var numberOfTweets: Int
+    
     // For user persistance
     var dictionary: [String: Any]?
     
@@ -42,10 +46,14 @@ class User {
         }
     }
     init() {
-        dictionary = ["name" : "", "screen_name" : "", "profile_image_url_https" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png"]
+        dictionary = ["name" : "", "screen_name" : "", "profile_image_url_https" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png", "followers_count": 0, "friends_count":0, "statuses_count":0]
         name = dictionary!["name"] as! String
         screenName = dictionary!["screen_name"] as? String
         profileURL = (dictionary!["profile_image_url_https"] as? String)!
+        
+        followersCount = dictionary!["followers_count"] as! Int
+        followingCount = dictionary!["friends_count"] as! Int
+        numberOfTweets = dictionary!["statuses_count"] as! Int
         
     }
     init(dictionary: [String: Any]) {
@@ -53,5 +61,9 @@ class User {
         screenName = dictionary["screen_name"] as? String
         profileURL = (dictionary["profile_image_url_https"] as? String)!
         self.dictionary = dictionary
+        
+        followersCount = dictionary["followers_count"] as! Int
+        followingCount = dictionary["friends_count"] as! Int
+        numberOfTweets = dictionary["statuses_count"] as! Int
     }
 }

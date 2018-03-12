@@ -51,9 +51,9 @@ class TweetDetailViewController: UIViewController {
         retweetCount.text = String(describing: tweetInfo.retweetCount) + " Retweets"
         if(tweetInfo.favoriteCount != nil) {
             let count = tweetInfo.favoriteCount!
-            favCount.text = String(count) + " Retweets"
+            favCount.text = String(count) + " Favorites"
         } else {
-            favCount.text = "0 Retweets"
+            favCount.text = "0 Favorites"
         }
     }
     

@@ -50,7 +50,11 @@ class ProfileViewController: UIViewController {
         let url = URL(string: user.profileURL)!
         userImg.af_setImage(withURL: url)
         screenname.text = user.screenName
-//        followerCount.text
+        followerCount.text = String(describing: user.followersCount) + " Followers"
+        followingCount.text = String(describing: user.followingCount) + " Following"
+        tweetCount.text = String(describing: user.numberOfTweets) + " Tweets"
+        
+        
     }
 
 }
