@@ -16,7 +16,7 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var tweetText: UITextView!
     
     var user = User()
-    
+    var delegate: ComposeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,24 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func didPost(_ sender: Any) {
-        print("post")
+        APIManager.shared.composeTweet(with: tweetText.text) { (tweet, error) in
+            if let error = error {
+                print("Error composing Tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                self.delegate?.did(post: tweet)
+                print("Compose Tweet Success!")
+                
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let vc = main.instantiateViewController(withIdentifier: "TimelineViewController") as UIViewController
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
 
+}
+
+protocol ComposeViewControllerDelegate {
+   
+    func did(post: Tweet)
 }
