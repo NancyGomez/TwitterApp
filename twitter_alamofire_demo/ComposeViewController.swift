@@ -49,6 +49,9 @@ class ComposeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func didPost(_ sender: Any) {
+        print("post")
+    }
+    
 
 }
