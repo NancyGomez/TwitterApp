@@ -106,7 +106,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.gyazo.com/f15951c2a7c173ad9ae54769013c243f.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.gyazo.com/13d7867bb42ce5518e3a4a2ef4200bfc.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
