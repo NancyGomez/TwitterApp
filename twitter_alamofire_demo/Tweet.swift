@@ -27,7 +27,7 @@ class Tweet {
         retweetCount = 0
         favorited = false
         retweeted = false
-        user = User(dictionary: ["name" : "", "screen_name" : "", "profile_image_url_https" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png"])
+        user = User()
         createdAtString = "0/0/0000"
     }
     

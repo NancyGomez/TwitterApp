@@ -10,26 +10,45 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
+    @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var screenName: UILabel!
+    @IBOutlet weak var tweetText: UITextView!
+    
+    var user = User()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fillUser()
+        loadUser()
+    }
+    
+    func loadUser() {
+        APIManager.shared.getCurrentAccount(completion: { (user, error) in
+            if error != nil {
+                print("error")
+            } else if let user = user {
+                print("Welcome \(user.name)")
+                User.current = user
+                self.user = user
+                self.fillUser()
+            }
+        })
+        
+    }
+    
+    func fillUser() {
+        username.text = user.name
+        let url = URL(string: user.profileURL)!
+        userImg.af_setImage(withURL: url)
+        screenName.text = user.screenName
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -41,7 +41,13 @@ class User {
             }
         }
     }
-    
+    init() {
+        dictionary = ["name" : "", "screen_name" : "", "profile_image_url_https" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png"]
+        name = dictionary!["name"] as! String
+        screenName = dictionary!["screen_name"] as? String
+        profileURL = (dictionary!["profile_image_url_https"] as? String)!
+        
+    }
     init(dictionary: [String: Any]) {
         name = dictionary["name"] as! String
         screenName = dictionary["screen_name"] as? String
