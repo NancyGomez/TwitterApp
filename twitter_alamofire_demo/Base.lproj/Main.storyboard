@@ -176,7 +176,7 @@
                                             <outlet property="screenName" destination="orf-yC-IBz" id="rY5-Qz-Pd5"/>
                                             <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="username" destination="OJV-bc-qRi" id="YMR-VE-CFJ"/>
-                                            <segue destination="hpL-Fm-YZL" kind="showDetail" id="xMD-V3-qrA"/>
+                                            <segue destination="Ikr-vm-cfP" kind="show" id="bzL-GQ-wUD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -304,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KN-eY-RNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3248.8000000000002" y="35.532233883058474"/>
+            <point key="canvasLocation" x="2422" y="37"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -323,24 +323,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-jg-Lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860" y="36.431784107946029"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="v4j-OO-Ygg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hpL-Fm-YZL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eMo-ic-bDY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ikr-vm-cfP" kind="relationship" relationship="rootViewController" id="6xX-yY-ovP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fIA-KR-jqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2480" y="35.982008995502248"/>
         </scene>
     </scenes>
     <resources>

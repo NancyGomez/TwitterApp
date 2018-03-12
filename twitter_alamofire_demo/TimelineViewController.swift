@@ -14,10 +14,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Timeline"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Timeline"
+//        self.title = "Timeline"
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -73,6 +77,15 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let tweet = tweets[indexPath.row]
+            let detailViewController = segue.destination as! TweetDetailViewController
+//            detailViewController.tweet = tweet
+        }
     }
     
 }

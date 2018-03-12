@@ -17,10 +17,15 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var favCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Tweet"
     }
 
     override func didReceiveMemoryWarning() {
